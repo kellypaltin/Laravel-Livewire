@@ -18,3 +18,18 @@ Route::get("contacto", function () {
 Route::get("/nosotros", [PaginaController::class, "acercaDeNosotros"]);
 
 Route::get("/servicios", [PaginaController::class, "nuestroServicios"]);
+
+// /persona/nombre/{nom}
+
+Route::get("/persona/nombre/{nom}", function ($mi_nombre){
+    return["nombre" => $mi_nombre];
+});
+
+// /return/nombre/{nom}/edad/{ed}
+Route::get("/persona/nombre/{nom}/{ed}", function ($mi_nombre, $edad){
+    return["nombre" => $mi_nombre, "edad" => $edad, "direccion" => ["avenida" => "av123", "zona" => "abc"]];
+});
+
+Route::get("/componentes", function(){
+    return view("componentes");
+});
